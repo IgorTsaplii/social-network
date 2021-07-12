@@ -1,0 +1,20 @@
+.menu{
+  font-size: 30px;
+  background: #0b8150;
+
+}
+
+.menu a{
+  display: block;
+  color: #000;
+  text-decoration: none;
+  margin: 10px 30px 10px 15px;
+}
+
+.menu a:hover{
+  color: rgb(211, 202, 202);
+}
+
+.menu a.active{
+  color: #fff;
+}

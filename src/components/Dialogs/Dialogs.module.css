@@ -1,0 +1,24 @@
+.dialogs{
+  display: flex;
+}
+
+.chat_history{
+  border-left: 1px solid #000;
+  padding: 16px 16px 90px 16px;
+  position: relative;
+}
+
+.add_message_block{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+  padding: 0 15px
+}
+
+.add_message_block input{
+  display: block;
+  width: calc(100% - 15px);
+  margin-bottom: 10px;
+  min-height: 40px;
+}

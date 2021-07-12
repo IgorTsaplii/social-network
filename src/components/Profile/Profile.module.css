@@ -1,0 +1,22 @@
+/* .profile{
+  width: 70%;
+  background: #08d680;
+}
+
+.profile h2{
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+} */
+
+.user_img{
+  margin: 20px auto;
+  width: 500px;
+}
+
+.input_new_post{
+  display: block;
+  background: #fff;
+  min-height: 30px;
+  color: #000;
+}

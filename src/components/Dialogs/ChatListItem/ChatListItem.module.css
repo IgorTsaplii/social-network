@@ -1,0 +1,17 @@
+.chat_list_item{
+  font-weight: 600;
+  padding:10px 30px 10px 20px;
+  font-size: 18px;
+}
+
+.chat_list_item a{
+  text-decoration: none;
+  color:#070c0b;
+}
+
+.chat_list_item a.active{
+  text-decoration: underline;
+  color:#fff;
+  font-size: 20px;
+}
+
