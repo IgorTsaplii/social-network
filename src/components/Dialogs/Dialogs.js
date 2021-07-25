@@ -4,19 +4,23 @@ import ChatListItem from "./ChatListItem/ChatListItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let dialogsItems = props.dialogsData.map((item) => (
+
+  let dialogsItems = props.dialogsPage.dialogsData.map((item) => (
     <ChatListItem userName={item.userName} userId={item.userId} />
   ));
 
-  let messageItems = props.messagesData.map((item) => (
-    <Message messageText={item.messageText} messageId={item.messageId} />
+  let messageItems = props.dialogsPage.messagesData.map((item) => (
+    <Message messageText={item.messageText} id={item.messageId} />
   ));
 
-  let newMessage = React.createRef();
+  let newMessageText = props.dialogsPage.newMessageText;
 
-  let addNewMessage = () => {
-    let text = newMessage.current.value;
-    alert(text);
+  let onSendMessageClick = () => {
+    props.sendMessage();
+  };
+  let onNewMessageChange = (event) => {
+    let text = event.target.value;
+    props.uppdateNewMessageText(text);
   };
 
   return (
@@ -27,8 +31,13 @@ const Dialogs = (props) => {
         <div className={classes.chat_history}>
           {messageItems}
           <div className={classes.add_message_block}>
-            <input ref={newMessage} type="text" placeholder="new message" />
-            <button onClick={addNewMessage}>Send</button>
+            <input
+              onChange={onNewMessageChange}
+              type="text"
+              placeholder="new message"
+              value={newMessageText}
+            />
+            <button onClick={onSendMessageClick}>Send</button>
           </div>
         </div>
       </div>

@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+
 let store = {
   _state: {
     profilePage: {
@@ -22,28 +25,29 @@ let store = {
       ],
       messagesData: [
         {
-          messageId: "1",
+          id: "1",
           messageText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         },
         {
-          messageId: "2",
+          id: "2",
           messageText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, esse iure molestias laudantium corporis natus neque accusamus quod adipisci eius magni consectetur aliquid minima aspernatur, nihil maiores quaerat? Distinctio, ut?",
         },
         {
-          messageId: "3",
+          id: "3",
           messageText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, esse iure molestias laudantium corporis?",
         },
-        { messageId: "4", messageText: "Lorem ipsum dolor." },
+        { id: "4", messageText: "Lorem ipsum dolor." },
         {
-          messageId: "5",
+          id: "5",
           messageText:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, esse iure molestias laudantium corporis natus neque accusamus quod adipisci eius magni consectetur aliquid minima aspernatur, nihil maiores quaerat? Distinctio, ut?",
         },
-        { messageId: "6", messageText: "Lorem ipsum dolo" },
+        { id: "6", messageText: "Lorem ipsum dolo" },
       ],
+      newMessageText: "",
     },
   },
   _callSubscriber() {
@@ -58,30 +62,10 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
-      let newPost = {
-        id: 7,
-        postMessage: this._state.profilePage.newPostText,
-        postLikes: 0,
-      };
-      this._state.profilePage.postsData.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === "UPPDATE-NEW-POST-TEXT") {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._callSubscriber(this._state);
   },
-};
-
-
-export const addPostActionCreator = () => {
-  return {
-    type: "ADD-POST",
-  };
-};
-export const uppdateNewPostTextActionCreator = (text) => {
-  return { type: "UPPDATE-NEW-POST-TEXT", newText: text };
 };
 
 window.store = store;
