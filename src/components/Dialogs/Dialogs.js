@@ -6,11 +6,11 @@ import Message from "./Message/Message";
 const Dialogs = (props) => {
 
   let dialogsItems = props.dialogsPage.dialogsData.map((item) => (
-    <ChatListItem userName={item.userName} userId={item.userId} />
+    <ChatListItem userName={item.userName} key={item.id} id={item.id} />
   ));
 
   let messageItems = props.dialogsPage.messagesData.map((item) => (
-    <Message messageText={item.messageText} id={item.messageId} />
+    <Message messageText={item.messageText} key={item.id} id={item.id} />
   ));
 
   let newMessageText = props.dialogsPage.newMessageText;

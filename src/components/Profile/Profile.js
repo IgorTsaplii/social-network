@@ -4,7 +4,7 @@ import Post from "./Posts/Post";
 
 const Profile = (props) => {
   let postsItems = props.postsData.map((item) => (
-    <Post id={item.postId} message={item.postMessage} likes={item.postLikes} />
+    <Post id={item.id} key={item.id} message={item.postMessage} likes={item.postLikes} />
   ));
 
   let newPostElement = React.createRef();
@@ -13,11 +13,26 @@ const Profile = (props) => {
     props.addPost()
   };
 
+  // let addNewPostText = () => {
+  //   let text = newPostElement.current.value;
+  //   props.updateNewPostText(text)
+  // };
+
   let addNewPostText = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text)
   };
+//   <input
+//   onChange={onNewMessageChange}
+//   type="text"
+//   placeholder="new message"
+//   value={newMessageText}
+// />
 
+// let onNewMessageChange = (event) => {
+//   let text = event.target.value;
+//   props.uppdateNewMessageText(text);
+// };
   return (
     <section>
       <h2>Profile</h2>
@@ -30,7 +45,7 @@ const Profile = (props) => {
         onChange={addNewPostText}
         ref={newPostElement}
         className={classes.input_new_post}
-        value={props.newPostText}
+        value={newPostText}
         placeholder="new post"
         type="text"
       />
