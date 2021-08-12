@@ -4,3 +4,27 @@
   font-size: 36px;
   font-weight: 600;
 }
+
+.header h1{
+ float:left  
+}
+
+.login_block{
+  float:right;
+  font-size: 20px;
+}
+
+.login_block a{
+  text-decoration: none;
+  color:#fff;
+}
+
+.login_block a:hover{
+  color: rgb(211, 202, 202);
+}
+
+.header::after{
+  content:"";
+  clear:both;
+  display: block;
+}

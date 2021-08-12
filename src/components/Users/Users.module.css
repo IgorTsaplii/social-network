@@ -1,0 +1,92 @@
+.pages_bar li {
+  display: inline-block;
+  margin: 5px;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  color: #fff;
+}
+
+.user_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user_block {
+  display: flex;
+  margin: 20px 0;
+  background: #04a05f;
+  width: calc(50% - 10px);
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin: 5px;
+}
+
+.user_block img {
+  width: 100px;
+  height: 100px;
+}
+
+.follow_button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  width: 78px;
+  border-radius: 0px;
+  background: #0c7348;
+  border: none;
+  color: #fff;
+}
+
+.follow_button:hover{
+  color:#000;
+  background: #b1dfcc;
+}
+
+.user_data {
+  position: relative;
+  margin-left: 15px;
+  max-width: 100%;
+}
+
+.user_location {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 200px;
+}
+
+.user_location p {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.user_name {
+  font-size: 20px;
+  overflow: hidden;
+  max-width: 300px;
+  padding-bottom: 10px;
+  color:#000;
+}
+
+.user_name_link{
+  text-decoration: none;
+}
+
+.user_name:hover{
+  color:#fff
+}
+
+
+.user_status {
+  max-width: 300px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
