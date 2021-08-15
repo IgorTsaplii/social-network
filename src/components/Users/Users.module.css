@@ -50,6 +50,11 @@
   background: #b1dfcc;
 }
 
+.follow_button[disabled]{ 
+  color: #8d8585;
+  background: #c1e4d5;
+}
+
 .user_data {
   position: relative;
   margin-left: 15px;

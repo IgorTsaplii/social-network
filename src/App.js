@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import SignIn from "./components/SignIn/SignIn";
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
           <Route path="/news" render={() => <News />} />
           <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/settings" render={() => <Settings />} />
+          <Route path="/sign-in" render={() => <SignIn />} />
         </main>
       </div>
     </BrowserRouter>

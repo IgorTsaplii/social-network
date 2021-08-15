@@ -1,27 +1,29 @@
 import Profile from "./Profile";
 import {
-  addPostAC,
-  uppdateNewPostTextAC,
-  setUserProfileAC,
+  addPost,
+  updateNewPostText,
+  getProfileData,
 } from "../../redux/profile-reducer";
 import { connect } from "react-redux";
 import React from "react";
-import * as axios from "axios";
 import { withRouter } from "react-router-dom";
+import { Redirect } from "react-router";
+// import { profileAPI } from "../../api/api";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userID = this.props.match.params.userId
+    let userId = this.props.match.params.userId;
+    this.props.getProfileData(userId); //this.props.authId
 
-    if(!userID) userID = 2
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userID}`)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });
+    // if(!userId) userId = 2
+    // profileAPI.getProfileData(userId)
+    //   .then((response) => {
+    //     this.props.setUserProfile(response.data);
+    //   });
   }
 
   render() {
+    if (!this.props.isAuth) return <Redirect to={"/sign-in"}/>
     return <Profile {...this.props} />;
   }
 }
@@ -29,24 +31,31 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     profilePage: state.profilePage,
-    userProfile: state.profilePage.userProfile
+    userProfile: state.profilePage.userProfile,
+    isAuth: state.auth.isAuth
+    // isAuth: state.auth.isAuth,
+    // authId: state.auth.userId,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addPost: () => {
-      dispatch(addPostAC());
-    },
-    updateNewPostText: (text) => {
-      dispatch(uppdateNewPostTextAC(text));
-    },
-    setUserProfile: (userProfile) => {
-      dispatch(setUserProfileAC(userProfile));
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addPost: () => {
+//       dispatch(addPostAC());
+//     },
+//     updateNewPostText: (text) => {
+//       dispatch(uppdateNewPostTextAC(text));
+//     },
+//     setUserProfile: (userProfile) => {
+//       dispatch(setUserProfileAC(userProfile));
+//     },
+//   };
+// };
 
-let WithURLDataConteinerComponent =  withRouter(ProfileContainer)
+let WithURLDataConteinerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithURLDataConteinerComponent);
+export default connect(mapStateToProps, {
+  addPost,
+  updateNewPostText,
+  getProfileData,
+})(WithURLDataConteinerComponent);

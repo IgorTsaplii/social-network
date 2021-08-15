@@ -2,9 +2,9 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import ChatListItem from "./ChatListItem/ChatListItem";
 import Message from "./Message/Message";
+import { Redirect } from "react-router";
 
 const Dialogs = (props) => {
-
   let dialogsItems = props.dialogsPage.dialogsData.map((item) => (
     <ChatListItem userName={item.userName} key={item.id} id={item.id} />
   ));
@@ -23,26 +23,27 @@ const Dialogs = (props) => {
     props.uppdateNewMessageText(text);
   };
 
-  return (
-    <section>
-      <h2>Dialogs</h2>
-      <div className={classes.dialogs}>
-        <div className={classes.chat_list}>{dialogsItems}</div>
-        <div className={classes.chat_history}>
-          {messageItems}
-          <div className={classes.add_message_block}>
-            <input
-              onChange={onNewMessageChange}
-              type="text"
-              placeholder="new message"
-              value={newMessageText}
-            />
-            <button onClick={onSendMessageClick}>Send</button>
+  if (!props.isAuth) return <Redirect to={"/sign-in"}/>
+    return (
+      <section>
+        <h2>Dialogs</h2>
+        <div className={classes.dialogs}>
+          <div className={classes.chat_list}>{dialogsItems}</div>
+          <div className={classes.chat_history}>
+            {messageItems}
+            <div className={classes.add_message_block}>
+              <input
+                onChange={onNewMessageChange}
+                type="text"
+                placeholder="new message"
+                value={newMessageText}
+              />
+              <button onClick={onSendMessageClick}>Send</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
 };
 
 export default Dialogs;
