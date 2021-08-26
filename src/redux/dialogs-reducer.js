@@ -1,12 +1,11 @@
-const UPPDATE_NEW_MESSAGE_TEXT = "UPPDATE-NEW-MESSAGE-TEXT";
 const SEND_MESSAGE = "SEND-MESSAGE";
 
 let initialState = {
   dialogsData: [
     { id: "111", userName: "Ivan" },
-    { id: "abc", userName: "Bob" },
     { id: "646464", userName: "Misha228" },
-    { id: "Jonh3333", userName: "Jonh3333" },
+    { id: "Jabc", userName: "Bob" },
+    { id: "onh3333", userName: "Jonh3333" },
     { id: "444", userName: "Gleb" },
     { id: "kurt333", userName: "kurt" },
   ],
@@ -32,23 +31,15 @@ let initialState = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, esse iure molestias laudantium corporis natus neque accusamus quod adipisci eius magni consectetur aliquid minima aspernatur, nihil maiores quaerat? Distinctio, ut?",
     },
     { id: "6", messageText: "Lorem ipsum dolo" },
-  ],
-  newMessageText: "",
+  ]
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPPDATE_NEW_MESSAGE_TEXT:
-      return {
-        ...state,
-        newMessageText: action.text,
-      };
-
     case SEND_MESSAGE:
-      let text = state.newMessageText;
+      let text = action.newMessageText;
       return {
         ...state,
-        newMessageText: "",
         messagesData: [...state.messagesData, { id: "7", messageText: text }],
       };
 
@@ -57,13 +48,11 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = () => {
+export const sendMessageCreator = (newMessageText) => {
   return {
     type: SEND_MESSAGE,
+    newMessageText,
   };
-};
-export const uppdateNewMessageTextCreator = (text) => {
-  return { type: UPPDATE_NEW_MESSAGE_TEXT, text: text };
 };
 
 export default dialogsReducer;

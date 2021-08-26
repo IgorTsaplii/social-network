@@ -26,11 +26,26 @@ export const authAPI = {
   getAuthData() {
     return instance.get(`auth/me`);
   },
+
+  login(email, password, rememberMe = false) {
+    return instance.post("auth/login", { email, password, rememberMe });
+  },
+
+  logout() {
+    return instance.delete("auth/login");
+  },
 };
 
 export const profileAPI = {
   getProfileData(userId) {
-    return instance.get(`profile/${userId}`)
-  }
-}
-      
+    return instance.get(`profile/${userId}`);
+  },
+
+  getProfileStatus(userId) {
+    return instance.get(`profile/status/${userId}`);
+  },
+
+  updateProfileStatus(status) {
+    return instance.put(`profile/status`, { status });
+  },
+};

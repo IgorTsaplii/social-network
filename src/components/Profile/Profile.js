@@ -3,6 +3,8 @@ import classes from "./Profile.module.css";
 import Post from "./Posts/Post";
 import UserPhoto from "../../assets/images/user_icon.png";
 import Preloader from "../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import { ReduxAddPostForm } from "./ProfileForm/AddPostForm";
 
 const Profile = (props) => {
   let postsItems = props.profilePage.postsData.map((item) => (
@@ -14,15 +16,8 @@ const Profile = (props) => {
     />
   ));
 
-  let newPostText = props.profilePage.newPostText;
-
-  let onAddPost = () => {
-    props.addPost();
-  };
-
-  let addNewPostText = (event) => {
-    let text = event.target.value;
-    props.updateNewPostText(text);
+  const onSubmit = (formData) => {
+    props.addPost(formData.newPostText);
   };
 
   if (!props.userProfile) {
@@ -32,23 +27,22 @@ const Profile = (props) => {
       <section>
         <h2>Profile</h2>
         <div>
-            <img
-              className={classes.user_img}
-              src={props.userProfile.photos.large != null ? props.userProfile.photos.large : UserPhoto}
-              alt="userPhoto"
-            />
-            <p>{props.userProfile.fullName}</p>
-            <p>{props.userProfile.aboutMe}</p>
+          <img
+            className={classes.user_img}
+            src={
+              props.userProfile.photos.large != null
+                ? props.userProfile.photos.large
+                : UserPhoto
+            }
+            alt="userPhoto"
+          />
+          <p>{props.userProfile.fullName}</p>
+          <ProfileStatus
+            status={props.status}
+            updateProfileStatus={props.updateProfileStatus}
+          />
         </div>
-
-        <input
-          onChange={addNewPostText}
-          className={classes.input_new_post}
-          value={newPostText}
-          placeholder="new post"
-          type="text"
-        />
-        <button onClick={onAddPost}>Add post</button>
+        <ReduxAddPostForm onSubmit={onSubmit} />
         {postsItems}
       </section>
     );
