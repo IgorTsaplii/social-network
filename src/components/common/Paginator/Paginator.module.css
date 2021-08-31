@@ -1,0 +1,11 @@
+.pages_bar span {
+  display: inline-block;
+  margin: 5px;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  color: #fff;
+}

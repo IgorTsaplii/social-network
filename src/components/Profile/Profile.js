@@ -3,8 +3,8 @@ import classes from "./Profile.module.css";
 import Post from "./Posts/Post";
 import UserPhoto from "../../assets/images/user_icon.png";
 import Preloader from "../common/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import { ReduxAddPostForm } from "./ProfileForm/AddPostForm";
+import ProfileStatusHooks from "./ProfileStatus/ProfileStatusHooks";
 
 const Profile = (props) => {
   let postsItems = props.profilePage.postsData.map((item) => (
@@ -37,7 +37,7 @@ const Profile = (props) => {
             alt="userPhoto"
           />
           <p>{props.userProfile.fullName}</p>
-          <ProfileStatus
+          <ProfileStatusHooks
             status={props.status}
             updateProfileStatus={props.updateProfileStatus}
           />
