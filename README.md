@@ -1,6 +1,6 @@
 # Social network
 
-This app was developed for learning react and kuvgch. It includes some functionality of social networks, such as: 
+This app was developed for learning react and redux. It includes some functionality of social networks, such as: 
 * authorization 
 * editing a profile
 * searching for users 
