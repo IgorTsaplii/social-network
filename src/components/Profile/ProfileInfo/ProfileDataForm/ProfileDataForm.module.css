@@ -1,0 +1,54 @@
+.error {
+  color: #0f0;
+}
+
+.profile_data_form {
+  padding-left: 30px;
+  display: inline-block;
+  width: 60%;
+  position: relative;
+}
+
+.profile_data_form .save_button {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 0px;
+  background: #0c7348;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  z-index: 20;
+}
+
+.profile_data_form .save_button:hover{
+  color: #000;
+  background: #b1dfcc;
+}
+
+.profile_data_form label {
+  display: block;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile_data_form label span{
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.profile_data_contacts_form > p {
+  margin-bottom: 8px;
+}
+
+.profile_data_contacts_form label {
+  display: inline-block;
+  width: 50%;
+}

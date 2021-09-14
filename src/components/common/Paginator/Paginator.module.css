@@ -1,3 +1,20 @@
+.peginator_wrapper{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pages_bar{
+  display: inline-block;
+}
+
+.pages_bar button{
+  background: none;
+  cursor: pointer;
+  border-radius: 0px;
+  border: none;
+}
+
+
 .pages_bar span {
   display: inline-block;
   margin: 5px;

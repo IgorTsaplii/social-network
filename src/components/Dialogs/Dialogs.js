@@ -14,7 +14,9 @@ const Dialogs = (props) => {
   ));
 
   const addNewMessage = (formData) => {
-    props.sendMessage(formData.newMassageText);
+    if (formData.newMassageText) {
+      props.sendMessage(formData.newMassageText);
+    }
   };
 
   return (

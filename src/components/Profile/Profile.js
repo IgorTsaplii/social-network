@@ -1,13 +1,11 @@
 import React from "react";
-import classes from "./Profile.module.css";
 import Post from "./Posts/Post";
-import UserPhoto from "../../assets/images/user_icon.png";
 import Preloader from "../common/Preloader/Preloader";
 import { ReduxAddPostForm } from "./ProfileForm/AddPostForm";
-import ProfileStatusHooks from "./ProfileStatus/ProfileStatusHooks";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-  let postsItems = props.profilePage.postsData.map((item) => (
+  let postsItems = props.postsData.map((item) => (
     <Post
       id={item.id}
       key={item.id}
@@ -17,7 +15,9 @@ const Profile = (props) => {
   ));
 
   const onSubmit = (formData) => {
-    props.addPost(formData.newPostText);
+    if (formData.newPostText) {
+      props.addPost(formData.newPostText);
+    }
   };
 
   if (!props.userProfile) {
@@ -26,22 +26,14 @@ const Profile = (props) => {
     return (
       <section>
         <h2>Profile</h2>
-        <div>
-          <img
-            className={classes.user_img}
-            src={
-              props.userProfile.photos.large != null
-                ? props.userProfile.photos.large
-                : UserPhoto
-            }
-            alt="userPhoto"
-          />
-          <p>{props.userProfile.fullName}</p>
-          <ProfileStatusHooks
-            status={props.status}
-            updateProfileStatus={props.updateProfileStatus}
-          />
-        </div>
+        <ProfileInfo
+          userProfile={props.userProfile}
+          isOwner={props.isOwner}
+          savePhoto={props.savePhoto}
+          status={props.status}
+          updateProfileStatus={props.updateProfileStatus}
+          saveProfile={props.saveProfile}
+        />
         <ReduxAddPostForm onSubmit={onSubmit} />
         {postsItems}
       </section>

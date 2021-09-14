@@ -1,9 +1,6 @@
 import "./App.css";
 import React from "react";
-//import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Navbar from "./components/Navbar/Navbar";
-import News from "./components/News/News";
-import Settings from "./components/Settings/Settings";
 import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -14,6 +11,7 @@ import { initializeApp } from "./redux/app-reducer";
 import { compose } from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import { Suspense } from "react";
+import { Redirect } from "react-router-dom";
 
 const DialogsContainer = React.lazy(() =>
   import("./components/Dialogs/DialogsContainer")
@@ -35,15 +33,17 @@ class App extends React.Component {
           <main>
             <Navbar />
             <Route
+              path="/"
+              render={() => <Redirect to={"/profile"} />}
+            />
+            <Route
               path="/profile/:userId?"
               render={() => <ProfileContainer />}
-            /> 
+            />
             <Suspense fallback={<Preloader />}>
               <Route path="/dialogs" render={() => <DialogsContainer />} />
             </Suspense>
-            <Route path="/news" render={() => <News />} />
             <Route path="/users" render={() => <UsersContainer />} />
-            <Route path="/settings" render={() => <Settings />} />
             <Route path="/sign-in" render={() => <SignIn />} />
           </main>
         </div>

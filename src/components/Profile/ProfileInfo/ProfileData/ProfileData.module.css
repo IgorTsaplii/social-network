@@ -1,0 +1,61 @@
+.profile_data{
+  display: inline-block;
+  width: 60%;
+  position: relative;
+  padding: 0 10px 20px 30px;
+}
+
+.edit_button{
+  position:absolute;
+  right: 10px;
+  top: -5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  background: none;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.edit_button:hover{
+  color:#000;
+  background: #b1dfcc;
+}
+
+.profile_data .profile_name{
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.profile_data .profile_data p {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.profile_status{
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color:#fff;
+  cursor: pointer;
+}
+
+.profile_status_input{
+  margin-bottom: 23px;
+  font-size: 18px;
+
+}
+
+.profile_data p span{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.profile_data .profile_contact span{
+  display: inline;
+}

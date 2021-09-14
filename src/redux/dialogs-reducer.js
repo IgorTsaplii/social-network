@@ -40,7 +40,7 @@ const dialogsReducer = (state = initialState, action) => {
       let text = action.newMessageText;
       return {
         ...state,
-        messagesData: [...state.messagesData, { id: "7", messageText: text }],
+        messagesData: [...state.messagesData, { id: (state.messagesData.length + 1) + "", messageText: text }],
       };
 
     default:

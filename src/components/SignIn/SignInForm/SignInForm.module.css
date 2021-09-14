@@ -1,0 +1,63 @@
+.form{
+  text-align: center;
+  margin-top: 60px;
+}
+
+.form label{
+  display: inline-block;
+  font-size: 18px;
+  width: 60%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form label input{
+  display: inline-block;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px;
+  text-align: center;
+}
+ 
+.form label span{
+  color:#fff;
+  display: block;
+  position: absolute;
+  bottom: - 10;
+  left: 50%;
+  font-size: 14px;
+  transform: translate(-50%);
+}
+
+.form .checkbox div{
+  display: inline-block;
+}
+
+.error{
+  color:#fff;
+  font-size: 14px;
+}
+
+.form img{
+  width:60%;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.form button {
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  width: 78px;
+  border-radius: 0px;
+  background: #0c7348;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+}
+
+.form button:hover{
+  color:#000;
+  background: #b1dfcc;
+}

@@ -12,6 +12,7 @@
 .login_block{
   float:right;
   font-size: 20px;
+  text-align: center;
 }
 
 .login_block a{
@@ -19,7 +20,7 @@
   color:#fff;
 }
 
-.login_block a:hover{
+.login_block a:hover, .logout_button:hover{
   color: rgb(211, 202, 202);
 }
 
@@ -28,3 +29,21 @@
   clear:both;
   display: block;
 }
+
+.logout_button{
+  background: none;
+    cursor: pointer;
+    border-radius: 0px;
+    border: none;
+    color:#fff;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.login_block .login a{
+  color:#000;
+  cursor: pointer
+}
+
+
+

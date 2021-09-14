@@ -20,5 +20,41 @@
   display: block;
   width: calc(100% - 15px);
   margin-bottom: 10px;
+}
+
+.message{
+  padding-bottom:15px;
+}
+
+.send_messag_form  div{
+  width:calc(100% - 98px) ;
+  float: left;
+}
+
+.send_messag_form textarea{
   min-height: 40px;
+  width: 100%;
+  resize: none;
+  padding:5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.send_messag_form button{
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  width: 78px;
+  border-radius: 0px;
+  background: #0c7348;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  margin-left:10px;
+  float: right;
+}
+
+.send_messag_form button:hover{
+  color:#000;
+  background: #b1dfcc;
 }

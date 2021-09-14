@@ -1,0 +1,41 @@
+.profile_info{
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.img_block{
+  display: inline-block;
+  text-align: center;
+  width: 40%;
+}
+
+.user_img{
+  width: 100%;
+  display: block;
+}
+
+.input_new_post{
+  display: block;
+  background: #fff;
+  min-height: 30px;
+  color: rgb(223, 163, 163);
+}
+
+.img_button div{
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+}
+
+.img_button input{
+  display: none;
+}
+
+.img_button div:hover{
+  color:#000;
+  background: #b1dfcc;
+}
