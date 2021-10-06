@@ -18,7 +18,7 @@ This app was developed for learning react and redux. It includes some functional
 ## You can run this project locally just do:
 
 Clone branch review with git clone https://github.com/IgorTsaplii/social-network.git or fork it and then clone it from your forked repo
-* cd movie-db
+* cd social-network
 * npm install
 * npm start
 
